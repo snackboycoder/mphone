@@ -14,7 +14,7 @@ echo ---------------------------------------------------------------
 echo pip install requirements
 echo ---------------------------------------------------------------
 
-pip install -r $script_path/package/requirements.txt
+python3 -m pip install -r $script_path/package/requirements.txt
 if [ $? -ne 0 ] ;then
     echo "pip install requirements failed"
     exit 1
@@ -26,7 +26,7 @@ echo ---------------------------------------------------------------
 echo create package
 echo ---------------------------------------------------------------
 
-python $script_path/package/package.py
+python3 $script_path/package/package.py
 if [ $? -ne 0 ] ;then
     echo "create package failed"
     exit 1
