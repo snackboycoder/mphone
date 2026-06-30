@@ -1,0 +1,3 @@
+[submodule "MPhone/MPhoneCore"]
+	path = MPhone/MPhoneCore
+	url = https://github.com/mphone/MPhoneCore.git
