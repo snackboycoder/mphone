@@ -24,39 +24,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  macos:
-    name: macOS arm64
-    runs-on: macos-14
-    env:
-      ENV_QT_PATH: ${{ github.workspace }}/Qt/6.5.3
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-          fetch-depth: 0
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v4
-        with:
-          version: "6.5.3"
-          dir: ${{ github.workspace }}/Qt
-          modules: qtmultimedia
-          cached: true
-      - name: Build
-        shell: bash
-        run: |
-          ci/mac/build_for_mac.sh RelWithDebInfo arm64
-      - name: Package DMG
-        shell: bash
-        run: |
-          ci/mac/publish_for_mac.sh ../build arm64
-          ci/mac/package_for_mac.sh
-          mkdir -p artifacts
-          cp ci/build/MPhone.dmg artifacts/MPhone-macos-arm64.dmg
-      - uses: actions/upload-artifact@v4
-        with:
-          name: MPhone-macos-arm64
-          path: artifacts/MPhone-macos-arm64.dmg
-
   linux:
     name: Linux amd64 deb
     runs-on: ubuntu-22.04
@@ -117,7 +84,19 @@ jobs:
           cmd.exe /c ci\win\publish_for_win.bat x64 ..\build\MPhone-windows-x64
           New-Item -ItemType Directory -Force artifacts | Out-Null
           Compress-Archive -Path ci\build\MPhone-windows-x64 -DestinationPath artifacts\MPhone-windows-x64.zip -Force
+      - name: Install Inno Setup
+        shell: powershell
+        run: |
+          choco install innosetup --no-progress -y
+      - name: Build installer
+        shell: powershell
+        run: |
+          $env:MPHONE_PACKAGE_DIR = "$env:GITHUB_WORKSPACE\ci\build\MPhone-windows-x64"
+          $env:MPHONE_INSTALLER_OUTPUT = "$env:GITHUB_WORKSPACE\artifacts"
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "$env:GITHUB_WORKSPACE\ci\win\installer\MPhone.iss"
       - uses: actions/upload-artifact@v4
         with:
           name: MPhone-windows-x64
-          path: artifacts/MPhone-windows-x64.zip
+          path: |
+            artifacts/MPhone-windows-x64.zip
+            artifacts/MPhoneSetup-x64.exe
