@@ -34,13 +34,20 @@ jobs:
         shell: bash
         run: |
           ci/mac/build_for_mac.sh RelWithDebInfo arm64
-      - name: Package app
+      - name: Deploy app
         shell: bash
         run: |
           ci/mac/publish_for_mac.sh ../build arm64
-          ci/mac/package_for_mac.sh
+      - name: Build DMG
+        shell: bash
+        run: |
           mkdir -p artifacts
-          cp ci/build/MPhone.dmg artifacts/MPhone-macos-arm64.dmg
+          hdiutil create \
+            -volname MPhone \
+            -srcfolder ci/build/MPhone.app \
+            -ov \
+            -format UDZO \
+            artifacts/MPhone-macos-arm64.dmg
       - uses: actions/upload-artifact@v4
         with:
           name: MPhone-macos-arm64
