@@ -8,14 +8,14 @@ It builds on the MPhone/scrcpy control engine and adds a Qt-based operations she
 
 ## Download
 
-Latest release: [MPhone v0.1.0](https://github.com/snackboycoder/mphone/releases/tag/v0.1.0)
+Latest release: [MPhone v0.1.1](https://github.com/snackboycoder/mphone/releases/tag/v0.1.1)
 
 | Platform | Download | Notes |
 | --- | --- | --- |
-| Windows x64 | [MPhoneSetup-x64.exe](https://github.com/snackboycoder/mphone/releases/download/v0.1.0/MPhoneSetup-x64.exe) | Recommended installer |
-| Windows x64 portable | [MPhone-windows-x64.zip](https://github.com/snackboycoder/mphone/releases/download/v0.1.0/MPhone-windows-x64.zip) | Extract and run `MPhone.exe` |
+| Windows x64 | [MPhoneSetup-x64.exe](https://github.com/snackboycoder/mphone/releases/download/v0.1.1/MPhoneSetup-x64.exe) | Recommended installer |
+| Windows x64 portable | [MPhone-windows-x64.zip](https://github.com/snackboycoder/mphone/releases/download/v0.1.1/MPhone-windows-x64.zip) | Extract and run `MPhone.exe` |
 | macOS arm64 | [MPhone-macos-arm64.dmg](https://github.com/snackboycoder/mphone/releases/download/v0.1.0/MPhone-macos-arm64.dmg) | Apple Silicon |
-| Ubuntu amd64 | [mphone_0.0.0_amd64.deb](https://github.com/snackboycoder/mphone/releases/download/v0.1.0/mphone_0.0.0_amd64.deb) | Ubuntu/Debian package |
+| Ubuntu amd64 | [mphone_0.1.1_amd64.deb](https://github.com/snackboycoder/mphone/releases/download/v0.1.1/mphone_0.1.1_amd64.deb) | Ubuntu/Debian package |
 
 ## What MPhone Is For
 

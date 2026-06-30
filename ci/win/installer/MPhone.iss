@@ -1,5 +1,5 @@
 #define AppName "MPhone"
-#define AppVersion "0.1.0"
+#define AppVersion "0.1.1"
 #define Publisher "MPhone"
 #define SourceDir GetEnv('MPHONE_PACKAGE_DIR')
 #define OutputDir GetEnv('MPHONE_INSTALLER_OUTPUT')
