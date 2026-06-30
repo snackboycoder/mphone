@@ -4,6 +4,19 @@ MPhone is a production Android fleet operations console for mirroring, controlli
 
 It builds on the MPhone/scrcpy control engine and adds a Qt-based operations shell for device pools, live screen grids, batch actions, diagnostics, script execution, wireless onboarding, and phone-box hardening workflows.
 
+![MPhone production console](docs/assets/mphone-demo-window.png)
+
+## Download
+
+Latest release: [MPhone v0.1.0](https://github.com/snackboycoder/mphone/releases/tag/v0.1.0)
+
+| Platform | Download | Notes |
+| --- | --- | --- |
+| Windows x64 | [MPhoneSetup-x64.exe](https://github.com/snackboycoder/mphone/releases/download/v0.1.0/MPhoneSetup-x64.exe) | Recommended installer |
+| Windows x64 portable | [MPhone-windows-x64.zip](https://github.com/snackboycoder/mphone/releases/download/v0.1.0/MPhone-windows-x64.zip) | Extract and run `MPhone.exe` |
+| macOS arm64 | [MPhone-macos-arm64.dmg](https://github.com/snackboycoder/mphone/releases/download/v0.1.0/MPhone-macos-arm64.dmg) | Apple Silicon |
+| Ubuntu amd64 | [mphone_0.0.0_amd64.deb](https://github.com/snackboycoder/mphone/releases/download/v0.1.0/mphone_0.0.0_amd64.deb) | Ubuntu/Debian package |
+
 ## What MPhone Is For
 
 MPhone is designed for teams that operate Android device clusters:
@@ -64,11 +77,6 @@ Device states are surfaced as operational states such as queued, starting, retry
 - CMake 3.19+
 - Qt 6.5.x with Widgets, Network, Multimedia, OpenGL, and OpenGLWidgets
 - C++ compiler for the target OS
-- Git submodules initialized
-
-```bash
-git submodule update --init --recursive
-```
 
 See [BUILD.md](BUILD.md) for platform-specific production build and packaging commands.
 
